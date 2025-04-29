@@ -15,7 +15,7 @@ namespace COMP003B.LectureActivity6
 
             // Set up the database context 
             builder.Services.AddDbContext<WebDevAcademyContext>(options =>
-                options.UseSqlServer("Name=ConnectionStrings.DefaultConnection"));
+                options.UseSqlServer("Name=ConnectionStrings:DefaultConnection"));
 
             var app = builder.Build();
 

@@ -1,4 +1,6 @@
-﻿namespace COMP003B.LectureActivity6.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace COMP003B.LectureActivity6.Models
 {
     public class Student
     {
@@ -13,5 +15,7 @@
 
         // Collection navigation property
         public virtual ICollection<Enrollment>? Enrollments { get; set; }
+
+        public int Age { get; set; } // New property added
     }
 }
