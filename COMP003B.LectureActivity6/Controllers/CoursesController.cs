@@ -30,7 +30,7 @@ namespace COMP003B.LectureActivity6.Controllers
         // GET: Courses/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Courses == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -41,6 +41,14 @@ namespace COMP003B.LectureActivity6.Controllers
             {
                 return NotFound();
             }
+
+            // Get the students enrolled in the course
+            ViewBag.Students = from s in _context.Students
+                               join e in _context.Enrollments on s.StudentId equals e.StudentId
+                               join c in _context.Courses on e.CourseId equals c.CourseId
+                               where c.CourseId == id
+                               select s;
+
 
             return View(course);
         }
